@@ -11,12 +11,13 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
             <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-
+        <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}" defer></script>
+        
         <!-- Styles -->
         <style>
             html, body {
                 background-color: #fff;
-                color: #636b6f;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
                 height: 100vh;
@@ -24,7 +25,7 @@
             }
 
             .nav-link, .navbar-brand{
-                color: black;
+                color: black !important;
                 font-weight: normal;
             }
 
@@ -57,7 +58,7 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: black;
                 padding: 0 25px;
                 font-size: 12px;
                 font-weight: 600;
@@ -78,16 +79,10 @@
             
 
             <div class="content">
-                <div class="title m-b-md">
-                    KoreConX Test Site
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <div class="container">
+                    <div class="title m-b-md">
+                        Welcome to the Share Purchase System
+                    </div>
                 </div>
             </div>
         </div>

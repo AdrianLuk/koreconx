@@ -83,6 +83,7 @@
                     <div class="title m-b-md">
                         Welcome to the Share Purchase System
                     </div>
+                    <p class="lead text-center">Please log in to continue</p>
                 </div>
             </div>
         </div>

@@ -60,8 +60,8 @@ class ShareController extends Controller
         ];
 
         $validator = Validator::make($request->all(), $rules);
-        if (!$validator){
-            $messages = $validator->messages();
+        if ($validator->fails()){
+            // $messages = $validator->messages();
             return redirect(URL::previous())->withErrors($validator)->withInput();
         }else{
        

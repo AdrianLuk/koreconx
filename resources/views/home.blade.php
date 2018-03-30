@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <h2 class="text-center">Click an option</h2>
+                    <h2 class="text-center">Please pick an option below</h2>
                 </div>
                 <div class="row justify-content-center card-footer m-0">
             <a class="btn btn-warning mx-2" href="{{ route('shares.create') }}">Purchase Shares</a>

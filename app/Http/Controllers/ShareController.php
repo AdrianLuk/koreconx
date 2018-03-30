@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Validator;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 // use Illuminate\Support\Collection;
 use Illuminate\Http\Request;
 use App\Share;
@@ -20,9 +22,11 @@ class ShareController extends Controller
     public function index()
     {
         //
-        $shares = Share::get();
+        $user = Auth::id();
+        $shares = DB::table('shares')->where('user_id', '=', $user)->get();
 
         return view('shares', compact('shares'));
+        
     }
 
     /**
@@ -60,7 +64,7 @@ class ShareController extends Controller
             $messages = $validator->messages();
             return redirect(URL::previous())->withErrors($validator)->withInput();
         }else{
-            $user = User::get()->first();
+       
         $share = new Share;
         $share->company_name = $request->input('company_name');
         $share->share_instrument_name = $request->input('share_instrument_name');
@@ -68,7 +72,7 @@ class ShareController extends Controller
         $share->quantity = $request->input('quantity');
         $share->total_investment = $request->input('total_investment');
         $share->certificate_number = $request->input('certificate_number');
-        $share->user_id = $user->id;
+        $share->user_id = $request->user()->id;
         $share->save();
         return redirect ('shares');
         }

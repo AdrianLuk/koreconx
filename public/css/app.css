@@ -10013,3 +10013,7 @@ a.text-dark:focus {
   margin: 0;
 }
 
+.form-control[readonly] {
+  background-color: #fff;
+}
+

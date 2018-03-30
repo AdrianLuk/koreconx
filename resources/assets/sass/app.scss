@@ -24,3 +24,7 @@
 .table ul {
     margin: 0;
 }
+
+.form-control[readonly] {
+    background-color: #fff;
+}

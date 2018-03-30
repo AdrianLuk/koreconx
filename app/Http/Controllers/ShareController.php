@@ -29,6 +29,7 @@ class ShareController extends Controller
     public function create()
     {
         //
+        return view('purchase');
     }
 
     /**

@@ -25,15 +25,15 @@
                 </div>
                 <div class="form-group col-md-4">
                     <label for="price" class="form-control-label text-uppercase font-weight-bold">Price <span class="text-capitalize">(up to 10 decimals)</span> <span class="text-danger">*</span></label>
-                    <input type="number" class="form-control" name="price" id="price" step="0.00000000001">
+                    <input type="number" class="form-control" name="price" id="price" step="0.00000000001" oninput=calculate()>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="quantity" class="form-control-label text-uppercase font-weight-bold">Quantity <span class="text-danger">*</span></label>
-                    <input class="form-control" type="number" min="1" name="quantity" id="quantity">
+                    <input class="form-control" type="number" min="1" name="quantity" id="quantity" oninput=calculate()>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="total_investment" class="form-control-label text-uppercase font-weight-bold">Total Investment($)</label>
-                    <input id="total_investment" name="total_investment" class="form-control text-center" type="text" readonly value="35">
+                    <input id="total_investment" name="total_investment" class="form-control text-center" type="text" readonly >
                 </div>
             </div>
             <div class="form-group">
@@ -43,4 +43,15 @@
             <button type="submit" class="btn btn-success">Purchase</button>
         </form>
     </div>
+
+    <script>
+        function calculate(){
+            const price = $('#price').val();
+            const quantity = $('#quantity').val();
+            let total = $('#total_investment');
+            let total_investment= price * quantity;
+            total.val(total_investment);
+            // console.log(total.val());
+        }
+    </script>
 @endsection

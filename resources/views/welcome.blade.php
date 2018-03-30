@@ -83,7 +83,7 @@
                     <div class="title m-b-md">
                         Welcome to the Share Purchase System
                     </div>
-                    <p class="lead text-center">Please log in to continue</p>
+                    <p class="lead text-center">Please <a href="{{ route('login') }}">log in</a> to continue</p>
                 </div>
             </div>
         </div>

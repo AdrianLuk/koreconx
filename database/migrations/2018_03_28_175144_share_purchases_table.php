@@ -13,7 +13,7 @@ class SharePurchasesTable extends Migration
      */
     public function up()
     {
-        Schema::create('purchases', function (Blueprint $table) {
+        Schema::create('shares', function (Blueprint $table) {
             $table->increments('id');
             $table->string('company_name');
             $table->string('share_instrument_name');
@@ -35,6 +35,6 @@ class SharePurchasesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('purchases');
+        Schema::dropIfExists('shares');
     }
 }

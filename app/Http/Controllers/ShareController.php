@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Share;
 use Illuminate\Http\Request;
 
 class ShareController extends Controller
@@ -14,6 +16,9 @@ class ShareController extends Controller
     public function index()
     {
         //
+        $shares = Share::get();
+
+        return view('shares', compact('shares'));
     }
 
     /**

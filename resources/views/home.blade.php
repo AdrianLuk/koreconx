@@ -15,7 +15,7 @@
                     @endif
                 </div>
                 
-               
+            <a class="btn btn-primary" href="{{ route('shares.index') }}">View Shares</a>
             </div>
         </div>
     </div>

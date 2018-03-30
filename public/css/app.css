@@ -10004,3 +10004,12 @@ a.text-dark:focus {
   color: black !important;
 }
 
+.table td {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.table ul {
+  margin: 0;
+}
+

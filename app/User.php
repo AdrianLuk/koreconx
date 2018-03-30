@@ -31,6 +31,10 @@ class User extends Authenticatable
     ];
 
     public function emails(){
-        return $this->hasMany('App\Email');
+        return $this->hasMany(Email::class);
+    }
+
+    public function shares(){
+        return $this->hasMany(Share::class);
     }
 }

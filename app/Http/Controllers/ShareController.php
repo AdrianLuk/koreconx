@@ -53,7 +53,7 @@ class ShareController extends Controller
         $rules = [
             'company_name'          => 'required',
             'share_instrument_name' => 'required',
-            'price'                 => 'required|digits_between:1, 16',
+            'price'                 => 'required',
             'quantity'              => 'required',
             'total_investment'      => 'required',
             'certificate_number'    => 'required',

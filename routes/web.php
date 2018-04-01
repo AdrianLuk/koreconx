@@ -15,6 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/account', function () {
+    return view('account');
+});
+
+// Route::get('/account', 'EmailController@index')->name('account');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

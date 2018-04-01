@@ -74,7 +74,7 @@ class ShareController extends Controller
         $share->certificate_number = $request->input('certificate_number');
         $share->user_id = $request->user()->id;
         $share->save();
-        return redirect ('shares');
+        return redirect('shares');
         }
     }
 

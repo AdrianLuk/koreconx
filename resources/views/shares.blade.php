@@ -28,7 +28,7 @@
                         <td>{{ substr($share->transaction_date, 0, 10) }}</td>
                         <td>
                             <ul class="list-inline list-unstyled">
-                                <li class="list-inline-item"><a href="/shares/{{$share->id}}/edit" class="btn btn-info">Update</a></li>
+                                <li class="list-inline-item"><a href="/shares/{{$share->id}}/edit" class="btn btn-info px-3">Edit</a></li>
                                     <form class="list-inline-item" action="/shares/{{ $share->id }}" method="POST">
                                         @csrf
                                         @method('delete')

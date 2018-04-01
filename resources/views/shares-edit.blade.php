@@ -29,7 +29,7 @@
                 </div>
                 <div class="form-group col-md-4">
                     <label for="price" class="form-control-label text-uppercase font-weight-bold">Price <span class="text-capitalize">(up to 10 decimals)</span> <span class="text-danger">*</span></label>
-                    <input type="number" class="form-control" name="price" id="price" oninput="calculate()" value="{{ $share->price }}">
+                    <input type="text" class="form-control" name="price" id="price" step="0.0000000001" oninput="calculate()" value="{{ number_format($share->price, 10, '.', ',') }}">
                     @if ($errors->has('price'))
                     <span class="form-text text-danger">{{$errors->first('price')}}</span>
                     @endif
@@ -43,7 +43,7 @@
                 </div>
                 <div class="form-group col-md-2">
                     <label for="total_investment" class="form-control-label text-uppercase font-weight-bold">Total Investment($)</label>
-                    <input id="total_investment" name="total_investment" class="form-control text-center" type="text" readonly value="{{ $share->total_investment }}">
+                    <input id="total_investment" name="total_investment" class="form-control text-center" type="text" readonly value="{{ number_format($share->total_investment, 2, '.', ',') }}">
                 </div>
             </div>
             <div class="form-group">

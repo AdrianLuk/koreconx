@@ -10,7 +10,7 @@
                     <th>Share Class</th>
                     <th>Quantity</th>
                     <th>Price ($)</th>
-                    <th>Total Investment</th>
+                    <th>Total Investment ($)</th>
                     <th>Certificate Number</th>
                     <th>Transaction Date</th>
                     <th class="text-center">Action</th>
@@ -22,8 +22,8 @@
                         <td>{{ $share->company_name }} </td>
                         <td>{{ $share->share_instrument_name }}</td>
                         <td>{{ $share->quantity }}</td>
-                        <td>{{ $share->price }}</td>
-                        <td>{{ $share->total_investment }}</td>
+                        <td>${{ number_format($share->price, 10, '.', ',') }}</td>
+                        <td>${{ number_format($share->total_investment, 2, '.', ',') }}</td>
                         <td>{{ $share->certificate_number }}</td>
                         <td>{{ substr($share->transaction_date, 0, 10) }}</td>
                         <td>

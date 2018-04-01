@@ -28,7 +28,7 @@
                 </div>
                 <div class="form-group col-md-4">
                     <label for="price" class="form-control-label text-uppercase font-weight-bold">Price <span class="text-capitalize">(up to 10 decimals)</span> <span class="text-danger">*</span></label>
-                    <input type="number" class="form-control" name="price" id="price" step="0.00000000001" oninput=calculate()>
+                    <input type="text" class="form-control" name="price" id="price" step="0.0000000001" oninput=calculate()>
                     @if ($errors->has('price'))
                     <span class="form-text text-danger">{{$errors->first('price')}}</span>
                     @endif
@@ -58,12 +58,11 @@
 
     <script>
         function calculate(){
-            const price = $('#price').val();
-            const quantity = $('#quantity').val();
-            let total = $('#total_investment');
-            let total_investment= price * quantity;
-            total.val(total_investment);
-            // console.log(total.val());
+            const price = document.getElementById('price').value;
+            const quantity = document.getElementById('quantity').value;
+            let total = document.getElementById('total_investment');
+            total.value = (price * quantity).toFixed(2);
+            // console.log(total.value);
         }
     </script>
 @endsection

@@ -10007,6 +10007,7 @@ a.text-dark:focus {
 .table td {
   vertical-align: middle;
   text-align: center;
+  font-family: "roboto", Arial, Helvetica, sans-serif;
 }
 
 .table ul {

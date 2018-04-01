@@ -7,6 +7,14 @@
 // Bootstrap
 @import "~bootstrap/scss/bootstrap";
 
+body {
+    font-family: $header-font;
+}
+
+nav {
+    font-family: $header-font;
+}
+
 .navbar-laravel {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -16,16 +24,31 @@
     color: black !important;
 }
 
-.table td {
-    vertical-align: middle;
-    text-align: center;
-    font-family: "roboto", Arial, Helvetica, sans-serif;
-}
-
-.table ul {
-    margin: 0;
+.table {
+    tr {
+        text-align: center;
+    }
+    td {
+        vertical-align: middle;
+        text-align: center;
+        font-family: $body-font;
+    }
+    th {
+        font-family: $header-font;
+    }
+    ul {
+        margin: 0;
+    }
 }
 
 .form-control[readonly] {
     background-color: #fff;
 }
+
+input.form-control {
+    font-family: $body-font;
+}
+
+// .form-control {
+//     font-family: $body-font;
+// }

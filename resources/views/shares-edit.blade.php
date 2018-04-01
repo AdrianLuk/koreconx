@@ -29,7 +29,7 @@
                 </div>
                 <div class="form-group col-md-4">
                     <label for="price" class="form-control-label text-uppercase font-weight-bold">Price <span class="text-capitalize">(up to 10 decimals)</span> <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="price" id="price" step="0.0000000001" oninput="calculate()" value="{{ number_format($share->price, 10, '.', ',') }}">
+                    <input type="text" class="form-control" name="price" id="price" step="0.0000000001" oninput="calculate()" value="{{ $share->price }} ">
                     @if ($errors->has('price'))
                     <span class="form-text text-danger">{{$errors->first('price')}}</span>
                     @endif
@@ -43,7 +43,7 @@
                 </div>
                 <div class="form-group col-md-2">
                     <label for="total_investment" class="form-control-label text-uppercase font-weight-bold">Total Investment($)</label>
-                    <input id="total_investment" name="total_investment" class="form-control text-center" type="text" readonly value="{{ number_format($share->total_investment, 2, '.', ',') }}">
+                    <input id="total_investment" name="total_investment" class="form-control text-center" type="text" readonly value="{{ $share->total_investment }}">
                 </div>
             </div>
             <div class="form-group">
@@ -58,12 +58,11 @@
     </div>
     <script>
         function calculate(){
-            const price = $('#price').val();
-            const quantity = $('#quantity').val();
-            let total = $('#total_investment');
-            let total_investment= price * quantity;
-            total.val(total_investment);
-            // console.log(total.val());
+            const price = document.getElementById('price').value;
+            const quantity = document.getElementById('quantity').value;
+            let total = document.getElementById('total_investment');
+            total.value = (price * quantity).toFixed(2);
+            // console.log(total.value);
         }
     </script>
 @endsection

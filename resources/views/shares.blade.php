@@ -22,7 +22,7 @@
                         <td>{{ $share->company_name }} </td>
                         <td>{{ $share->share_instrument_name }}</td>
                         <td>{{ $share->quantity }}</td>
-                        <td>${{ number_format($share->price, 10, '.', ',') }}</td>
+                        <td>${{ $share->price }}</td>
                         <td>${{ number_format($share->total_investment, 2, '.', ',') }}</td>
                         <td>{{ $share->certificate_number }}</td>
                         <td>{{ substr($share->transaction_date, 0, 10) }}</td>

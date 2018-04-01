@@ -117,23 +117,23 @@ class ShareController extends Controller
         $shareData = array_filter($request->all());
         $share->fill($shareData);
 
-        // $rules = [
-        //     'company_name'          => 'required',
-        //     'share_instrument_name' => 'required',
-        //     'price'                 => 'required',
-        //     'quantity'              => 'required',
-        //     'total_investment'      => 'required',
-        //     'certificate_number'    => 'required',
-        // ];
+        $rules = [
+            'company_name'          => 'required',
+            'share_instrument_name' => 'required',
+            'price'                 => 'required',
+            'quantity'              => 'required',
+            'total_investment'      => 'required',
+            'certificate_number'    => 'required',
+        ];
 
-        // $validator = Validator::make($share, $rules);
-        // if ($validator-fails()){
-        //     $messages = $validator->messages();
-        //     return redirect(URL::previous())->withErrors($validator)->withInput();
-        // }else{
+        $validator = Validator::make($shareData, $rules);
+        if ($validator->fails()){
+            // $messages = $validator->messages();
+            return redirect(URL::previous())->withErrors($validator)->withInput();
+        }else{
         $share->save();
         return redirect ('shares');
-        // }
+        }
         
     }
 

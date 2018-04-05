@@ -66,7 +66,7 @@ class RegisterController extends Controller
      *      */
     protected function create(array $data)
     {
-        return User::create([
+        User::create([
             'first_name' => ucwords($data['first_name']),
             'last_name'  => ucwords($data['last_name']),
             'email'      => $data['email'],
@@ -75,6 +75,7 @@ class RegisterController extends Controller
 
         Email::create([
             'email' => $data['email'],
+            'is_default' => '1'
         ]);
     }
 }

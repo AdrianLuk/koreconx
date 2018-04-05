@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Validator;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\User;
+use URL;
 
 class EmailController extends Controller
 {
@@ -14,6 +19,10 @@ class EmailController extends Controller
     public function index()
     {
         //
+        $user = Auth::id();
+        $emails = DB::table('emails')->where('user_id', '=', $user)->get();
+
+        return view('account', compact('emails'));
     }
 
     /**

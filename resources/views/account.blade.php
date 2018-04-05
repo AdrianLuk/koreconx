@@ -8,9 +8,9 @@
         <table class="table table-hover table-striped table-bordered m-0">
             <thead>
                 <tr class="row m-0 text-center">
-                    <th class="col-8">Email Address</th>
-                    <th class="col-2">Primary Email</th>
-                    <th class="col-2">Action</th>
+                    <th>Email Address</th>
+                    <th>Primary Email</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>

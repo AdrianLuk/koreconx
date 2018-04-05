@@ -8,8 +8,13 @@ class Email extends Model
 {
     //
     // protected $table = 'emails';
+     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
 
-    protected $fillable = ['email'];
+    protected $fillable = ['email', 'is_default'];
 
     public function user()
     {

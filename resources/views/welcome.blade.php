@@ -80,10 +80,22 @@
 
             <div class="content">
                 <div class="container">
+                    @guest                    
                     <div class="title m-b-md">
-                        Welcome to the Share Purchase System
+                        <h1>Welcome to the Share Purchase System</h1>
                     </div>
                     <p class="lead text-center">Please <a href="{{ route('login') }}">log in</a> to continue</p>
+                    @else
+                    <div class="title m-b-md">
+                        Welcome back {{Auth::user()->first_name}}
+                        <h2>Get started below</h2>
+                    </div>
+                    <div class="row justify-content-center m-0">
+                    <a class="btn btn-warning mx-2" href="{{ route('shares.create') }}">Purchase Shares</a>
+                    <a class="btn btn-info mx-2" href="{{ route('shares.index') }}">View Shares</a>
+                    <a class="btn btn-success mx-2" href="/account">View Account</a>
+                </div>
+                    @endguest
                 </div>
             </div>
         </div>

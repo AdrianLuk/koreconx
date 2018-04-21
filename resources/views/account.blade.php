@@ -20,15 +20,38 @@
         </button>
       </div>
       <div class="modal-body">
-        ...
+        <form action="/account" method="post">
+            @csrf
+            <div class="form-group">
+                <label for="email" class="form-control-label text-uppercase font-weight-bold">Email Address <span class="text-danger">*</span></label>
+                <input type="text" name="email" class="form-control" id="email" value="{{Request::old('email')}}">
+                @if ($errors->has('email'))
+                    <span class="form-text text-danger">{{$errors->first('email')}}</span>
+                @endif
+            </div>
+            <div class="form-group">
+                <label for="email_confirmation" class="form-control-label text-uppercase font-weight-bold">Confirm Email Address <span class="text-danger">*</span></label>
+                <input type="text" name="email_confirmation" class="form-control" id="email_confirmation">
+            </div>
+            <div class="form-group">
+                <div class="custom-checkbox custom-control">
+                    <input type="checkbox" name="is_default" class="custom-control-input" id="primarycheck" value="1">
+                    <label for="primarycheck" class="custom-control-label text-uppercase font-weight-bold">
+                        Set as Primary Email
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Add Email</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> 
+            </div>
+        </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+
     </div>
   </div>
 </div>
+<p class="lead text-center text-danger">* You may only log in using the primary email</p>
         <table class="table table-hover table-striped table-bordered m-0">
             <thead>
                 <tr>
@@ -51,7 +74,7 @@
                     <td>
                         <ul class="list-inline list-unstyled">
                             <li class="list-inline-item"><a href="#" class="btn btn-info px-3">Edit</a></li>
-                                <form class="list-inline-item" action="#" method="POST">
+                                <form class="list-inline-item" action="/account/{{$email->id}}" method="POST">
                                     @csrf
                                     @method('delete')
                                     <button type="submit" class="btn btn-danger">Delete</button>

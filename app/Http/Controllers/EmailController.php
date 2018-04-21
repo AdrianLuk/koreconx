@@ -34,6 +34,7 @@ class EmailController extends Controller
     public function create()
     {
         //
+        return view('account');
     }
 
     /**
@@ -45,6 +46,38 @@ class EmailController extends Controller
     public function store(Request $request)
     {
         //
+        $rules = [
+            'email' => 'required|unique:users|confirmed',
+        ];
+
+        $validator = Validator::make($request->all(), $rules);
+        if ($validator->fails()){
+            return redirect(URL::previous())->withErrors($validator)->withInput();
+        }else{
+            $email = new Email;
+            $email->email = $request->input('email');
+            $email->user_id = $request->user()->id;
+            if($request->input('is_default') == '1'){
+                $user = Auth::id();
+                $users_emails = DB::table('emails')->where('user_id', $user)->get();
+                compact($users_emails);
+                // dd($users_emails);
+                foreach($users_emails as $user_email){
+                    
+                    if ($user_email->is_default == '1'){
+                    $user_email->is_default = '0';
+                    }else{
+                        $user_email->is_default = '0';
+                    }
+                }
+                $email->is_default = '1';
+            }else{
+                $email->is_default = '0';
+            }
+            // dd($users_emails);
+            $email->save();
+            return redirect('account');
+        }
     }
 
     /**
@@ -90,5 +123,8 @@ class EmailController extends Controller
     public function destroy($id)
     {
         //
+        $email = Email::find($id);
+        $email->delete();
+        return redirect('account');
     }
 }

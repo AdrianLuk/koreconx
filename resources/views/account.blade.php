@@ -24,14 +24,17 @@
             @csrf
             <div class="form-group">
                 <label for="email" class="form-control-label text-uppercase font-weight-bold">Email Address <span class="text-danger">*</span></label>
-                <input type="text" name="email" class="form-control" id="email" value="{{Request::old('email')}}">
+                <input type="email" name="email" class="form-control" id="email" value="{{Request::old('email')}}">
                 @if ($errors->has('email'))
                     <span class="form-text text-danger">{{$errors->first('email')}}</span>
                 @endif
             </div>
             <div class="form-group">
                 <label for="email_confirmation" class="form-control-label text-uppercase font-weight-bold">Confirm Email Address <span class="text-danger">*</span></label>
-                <input type="text" name="email_confirmation" class="form-control" id="email_confirmation">
+                <input type="email" name="email_confirmation" class="form-control" id="email_confirmation">
+                 @if ($errors->has('email'))
+                    <span class="form-text text-danger">{{$errors->first('email')}}</span>
+                @endif
             </div>
             <div class="form-group">
                 <div class="custom-checkbox custom-control">
@@ -51,7 +54,7 @@
     </div>
   </div>
 </div>
-<p class="lead text-center text-danger">* You may only log in using the primary email</p>
+{{-- <p class="lead text-center text-danger">* You may only log in using the primary email</p> --}}
         <table class="table table-hover table-striped table-bordered m-0">
             <thead>
                 <tr>

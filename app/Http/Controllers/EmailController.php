@@ -47,7 +47,7 @@ class EmailController extends Controller
     {
         //
         $rules = [
-            'email' => 'required|unique:users|confirmed',
+            'email' => 'email|required|unique:users|confirmed',
         ];
 
         $validator = Validator::make($request->all(), $rules);
@@ -58,18 +58,10 @@ class EmailController extends Controller
             $email->email = $request->input('email');
             $email->user_id = $request->user()->id;
             if($request->input('is_default') == '1'){
-                $user = Auth::id();
-                $users_emails = DB::table('emails')->where('user_id', $user)->get();
-                compact($users_emails);
-                // dd($users_emails);
-                foreach($users_emails as $user_email){
-                    
-                    if ($user_email->is_default == '1'){
-                    $user_email->is_default = '0';
-                    }else{
-                        $user_email->is_default = '0';
-                    }
-                }
+                $user = Auth::id();              
+                Email::where('user_id', $user)
+                ->where('is_default', '1')
+                ->update(['is_default' => '0']);
                 $email->is_default = '1';
             }else{
                 $email->is_default = '0';

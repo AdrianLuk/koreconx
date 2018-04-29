@@ -1,6 +1,7 @@
 <?php
 
 use App\User;
+use App\Email;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,6 +21,11 @@ class DatabaseSeeder extends Seeder
             'last_name'  => 'Luk',
             'email'      => 'aluk@email.com',
             'password'   => bcrypt('password')
+        ]);
+        Email::create([
+            'user_id' => '1',
+            'email' => 'aluk@email.com',
+            'is_default' => '1'
         ]);
     }
 }

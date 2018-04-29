@@ -14,7 +14,7 @@ class Email extends Model
      * @var array
      */
 
-    protected $fillable = ['email', 'is_default'];
+    protected $fillable = ['user_id','email', 'is_default'];
 
     public function user()
     {

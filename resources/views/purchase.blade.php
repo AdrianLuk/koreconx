@@ -4,7 +4,7 @@
     <div class="container">
         <h1 class="text-center">Purchase Shares</h1>
         <form action="/shares" method="post">
-            @csrf
+            {{ csrf_field() }}
             <div class="form-group">
                 <label for="name" class="form-control-label text-uppercase font-weight-bold">Company Name <span class="text-danger">*</span></label>
                 <input name="company_name" type="text" class="form-control" id="name" placeholder="Company Name" value="{{Request::old('company_name')}}">

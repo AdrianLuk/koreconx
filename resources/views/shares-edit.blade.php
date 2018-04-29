@@ -4,8 +4,8 @@
     <div class="container">
         <h1 class="text-center">Editing Your Share for {{ $share->company_name }}</h1>
         <form action="/shares/{{ $share->id }}" method="post">
-            @csrf
-            @method('patch')
+            {{ csrf_field() }}
+            {{ method_field('PATCH') }}
             <div class="form-group">
                 <label for="name" class="form-control-label text-uppercase font-weight-bold">Company Name <span class="text-danger">*</span></label>
                 <input name="company_name" type="text" class="form-control" id="name" placeholder="Company Name" value="{{ $share->company_name }}">

@@ -41,8 +41,8 @@
                             </li>
                             <li class="list-inline-item">
                                 <form action="/account/{{$email->id}}" method="POST">
-                                    @csrf
-                                    @method('delete')
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
                                     <button type="submit" class="btn btn-danger">Delete</button>
                                 </form>
                             </li>
@@ -64,7 +64,7 @@
       </div>
       <div class="modal-body">
         <form action="/account" method="post">
-            @csrf
+            {{ csrf_field() }}
             <div class="form-group">
                 <label for="email" class="form-control-label text-uppercase font-weight-bold">Email Address <span class="text-danger">*</span></label>
                 <input type="email" name="email" class="form-control" id="email" value="{{Request::old('email')}}">
@@ -108,8 +108,8 @@
                 </div>
                 <div class="modal-body">
                     <form id="edit-form" method="post">
-                        @csrf
-                        @method('patch')
+                        {{ csrf_field() }}
+                        {{ method_field('PATCH') }}
                         <div class="form-group">
                             <label for="email_edit" class="form-control-label text-uppercase font-weight-bold">Email Address <span class="text-danger">*</span></label>
                             <input type="email" name="email" class="form-control" id="email_edit">

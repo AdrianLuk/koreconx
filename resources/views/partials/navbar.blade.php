@@ -25,7 +25,7 @@
                             <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                         @else
                             <li class="nav-item dropdown">Hello
-                                <a id="navbarDropdown" class="pl-1 nav-link dropdown-toggle d-inline-block" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="pl-1 nav-link dropdown-toggle d-inline-block text-capitalize" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {{ Auth::user()->first_name }}<span class="caret"></span>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">

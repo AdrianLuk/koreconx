@@ -53,7 +53,7 @@
                         <span class="form-text text-danger">{{$errors->first('certificate_number')}}</span>
                     @endif
             </div>
-            <button type="submit" class="btn btn-success">Purchase</button>
+            <button type="submit" class="btn btn-success">Update</button>
             <button type="reset" class="btn btn-warning">Reset</button>
         </form>
     </div>

@@ -63,6 +63,8 @@ class EmailController extends Controller
                 ->where('is_default', '1')
                 ->update(['is_default' => '0']);
                 $email->is_default = '1';
+                User::where('id', $user)
+                ->update(['email' => $request->input('email')]);
             }else{
                 $email->is_default = '0';
             }
@@ -81,6 +83,7 @@ class EmailController extends Controller
     public function show($id)
     {
         //
+        return view('account');
     }
 
     /**
@@ -92,6 +95,9 @@ class EmailController extends Controller
     public function edit($id)
     {
         //
+        $email = Email::find($id);
+        compact('email');
+        
     }
 
     /**
@@ -104,6 +110,32 @@ class EmailController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $email = Email::find($id);
+        // dd($request);
+        $emailData = array_filter($request->all());
+        $email->fill($emailData);
+        $rules = [
+            'email' => 'email|required|unique:users',
+        ];
+
+        $validator = Validator::make($request->all(), $rules);
+        if ($validator->fails()){
+            return redirect(URL::previous())->withErrors($validator)->withInput();
+        }else{
+            $user = Auth::id(); 
+            if(($request->input('is_default') == '1') || ($email->is_default == '1')){         
+                Email::where('user_id', $user)
+                ->where('is_default', '1')
+                ->update(['is_default' => '0']);
+                $email->is_default = '1';
+                 User::where('id', $user)
+                ->update(['email' => $request->input('email')]);
+            }else{
+                $email->is_default = '0';
+            }
+            $email->save();
+            return redirect('account');
+        }
     }
 
     /**
@@ -115,8 +147,14 @@ class EmailController extends Controller
     public function destroy($id)
     {
         //
+        $user = Auth::id();
         $email = Email::find($id);
-        $email->delete();
+        if($email->is_default == '1'){
+        
         return redirect('account');
+        }else{
+            $email->delete();
+            return redirect('account');
+        }
     }
 }

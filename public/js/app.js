@@ -14044,7 +14044,6 @@ module.exports = __webpack_require__(60);
 /* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes React and other helpers. It's a great starting point while
@@ -14060,6 +14059,19 @@ __webpack_require__(19);
  */
 
 __webpack_require__(43);
+
+$(".edit-button").click(function () {
+    var id = $(this).data("id");
+    $("#edit-form").attr({
+        action: "/account/" + id
+    });
+    $("#email_edit").val($(this).data("email"));
+    if ($(this).data("default") == "1") {
+        $("#primaryemailcheck_edit").attr({ checked: true });
+    } else {
+        $("#primaryemailcheck_edit").attr({ checked: false });
+    }
+});
 
 /***/ }),
 /* 19 */

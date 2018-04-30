@@ -63,21 +63,28 @@ class RegisterController extends Controller
      *
      * @param  array  $data
      * @return \App\User
+     * @return \App\Email
      *      */
     protected function create(array $data)
     {
-        dd($data);
-        User::create([
+        // dd($data);
+        $user = User::create([
             'first_name' => ucwords($data['first_name']),
             'last_name'  => ucwords($data['last_name']),
             'email'      => $data['email'],
             'password'   => Hash::make($data['password']),
         ]);
 
-        Email::create([
-            'user_id' => Auth::user()->id,
-            'email' => $data['email'],
-            'is_default' => '1'
-        ]);
+        $email = new Email();
+        $email->email = $data['email'];
+        $email->is_default = true;
+        $email->user_id = $user->id;
+        $email->save();
+        // Email::create([
+        //     'user_id' => Auth::id(),
+        //     'email' => $data['email'],
+        //     'is_default' => '1'
+        // ]);
+        return $user;
     }
 }

@@ -22,7 +22,7 @@ class SharePurchasesTable extends Migration
             $table->decimal('total_investment', 11, 2);
             $table->integer('certificate_number');
             $table->uuid('user_id');
-            $table->dateTimeTz('transaction_date');
+            $table->dateTimeTz('transaction_date')->useCurrent();
             $table->timestamps();
             $table->softDeletes();
         });

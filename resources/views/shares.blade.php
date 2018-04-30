@@ -1,7 +1,9 @@
 @extends ('layouts.app')
 
 @section('content')
-    <h1 class="text-center">{{Auth::user()->first_name }}'s Shares</h1>
+        <div class="row align-items-center justify-content-center ml-5 my-3">
+    <h1 class="text-center">{{Auth::user()->first_name }}'s Shares</h1><a href="/shares/create" class="ml-3 btn btn-success">Purchase Shares</a>
+    </div>
     <div class="container">
         <table class="table table-hover table-striped table-bordered">
             <thead>

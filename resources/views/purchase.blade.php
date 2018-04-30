@@ -47,7 +47,7 @@
             </div>
             <div class="form-group">
                 <label for="certificate_number" class="form-control-label text-uppercase font-weight-bold">Certificate Number</label>
-                <input type="text" id="certificate_number" class="form-control" name="certificate_number" placeholder="Certificate Number">
+                <input type="text" maxlength="11" id="certificate_number" class="form-control" name="certificate_number" placeholder="Certificate Number">
                     @if ($errors->has('certificate_number'))
                         <span class="form-text text-danger">{{$errors->first('certificate_number')}}</span>
                     @endif

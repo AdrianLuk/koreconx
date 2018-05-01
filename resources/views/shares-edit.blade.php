@@ -48,7 +48,7 @@
             </div>
             <div class="form-group">
                 <label for="certificate_number" class="form-control-label text-uppercase font-weight-bold">Certificate Number</label>
-                <input type="text" id="certificate_number" class="form-control" name="certificate_number" placeholder="Certificate Number" value="{{ $share->certificate_number }}">
+                <input type="text" maxlength="10" id="certificate_number" class="form-control" name="certificate_number" placeholder="Certificate Number" value="{{ $share->certificate_number }}">
                  @if ($errors->has('certificate_number'))
                         <span class="form-text text-danger">{{$errors->first('certificate_number')}}</span>
                     @endif
